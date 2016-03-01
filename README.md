@@ -1,2 +1,3 @@
 # OpenGLStudy
-OpenGL Study with Examples and Homeworks
+
+OpenGL Study with Examples and Homeworks (TBA)
