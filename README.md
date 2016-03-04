@@ -4,7 +4,7 @@ Modern OpenGL Tutorials based on [OGLdev](http://ogldev.atspace.co.uk/) (Transla
 
 ## Tutorials
 
-01 - Open a window
+01 - Create a window
 
 02 - Hello dot!
 
