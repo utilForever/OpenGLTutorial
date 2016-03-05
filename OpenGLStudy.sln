@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25029.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tutorial 01 - Create a window", "Tutorial 01 - Create a window\Tutorial 01 - Create a window.vcxproj", "{C0BD0AE9-AEA1-4162-8FE0-D4B5FFBB7368}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tutorial 02 - Hello Dot!", "Tutorial 02 - Hello Dot!\Tutorial 02 - Hello Dot!.vcxproj", "{EA46F19F-8A1D-4858-AC74-76AD7156441A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,22 @@ Global
 		{C0BD0AE9-AEA1-4162-8FE0-D4B5FFBB7368}.Release|x64.Build.0 = Release|x64
 		{C0BD0AE9-AEA1-4162-8FE0-D4B5FFBB7368}.Release|x86.ActiveCfg = Release|Win32
 		{C0BD0AE9-AEA1-4162-8FE0-D4B5FFBB7368}.Release|x86.Build.0 = Release|Win32
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Debug|x64.ActiveCfg = Debug|x64
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Debug|x64.Build.0 = Debug|x64
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Debug|x86.Build.0 = Debug|Win32
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Release|x64.ActiveCfg = Release|x64
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Release|x64.Build.0 = Release|x64
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Release|x86.ActiveCfg = Release|Win32
+		{EA46F19F-8A1D-4858-AC74-76AD7156441A}.Release|x86.Build.0 = Release|Win32
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Debug|x64.ActiveCfg = Debug|x64
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Debug|x64.Build.0 = Debug|x64
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Debug|x86.ActiveCfg = Debug|Win32
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Debug|x86.Build.0 = Debug|Win32
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Release|x64.ActiveCfg = Release|x64
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Release|x64.Build.0 = Release|x64
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Release|x86.ActiveCfg = Release|Win32
+		{A1A7BBCC-03C5-4CAD-8115-74A2B015FC08}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
