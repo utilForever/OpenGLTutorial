@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 
-void RenderScene();
+static void InitializeGlutCallbacks();
+static void RenderScene();
 
 int main(int argc, char* argv[])
 {
@@ -10,7 +11,7 @@ int main(int argc, char* argv[])
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Tutorial 01 - Create a window");
 
-	glutDisplayFunc(RenderScene);
+	InitializeGlutCallbacks();
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
@@ -19,7 +20,12 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-void RenderScene()
+static void InitializeGlutCallbacks()
+{
+	glutDisplayFunc(RenderScene);
+}
+
+static void RenderScene()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glutSwapBuffers();
