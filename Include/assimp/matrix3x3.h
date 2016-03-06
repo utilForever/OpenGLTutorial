@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define AI_MATRIX3x3_H_INC
 
 #include "./Compiler/pushpack1.h"
+#include "quaternion.h"
 
 #ifdef __cplusplus
 
