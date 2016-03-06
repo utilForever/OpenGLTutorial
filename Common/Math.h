@@ -1,8 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include <iostream>
-
 #include <matrix3x3.h>
 #include <matrix4x4.h>
 
