@@ -53,137 +53,36 @@ struct Vector4f
 	float z;
 	float w;
 
-	Vector4f()
-	{
-	}
+	Vector4f();
+	Vector4f(float _x, float _y, float _z, float _w);
 
-	Vector4f(float _x, float _y, float _z, float _w)
-	{
-		x = _x;
-		y = _y;
-		z = _z;
-		w = _w;
-	}
-
-	void Print() const
-	{
-		printf("(%.02f, %.02f, %.02f, %.02f)", x, y, z, w);
-	}
-
-	Vector3f to3f() const
-	{
-		Vector3f v(x, y, z);
-		return v;
-	}
+	void Print() const;
+	Vector3f To3f() const;
 };
 
-
-
-inline Vector3f operator+(const Vector3f& l, const Vector3f& r)
-{
-	Vector3f Ret(l.x + r.x,
-		l.y + r.y,
-		l.z + r.z);
-
-	return Ret;
-}
-
-inline Vector3f operator-(const Vector3f& l, const Vector3f& r)
-{
-	Vector3f Ret(l.x - r.x,
-		l.y - r.y,
-		l.z - r.z);
-
-	return Ret;
-}
-
-inline Vector3f operator*(const Vector3f& l, float f)
-{
-	Vector3f Ret(l.x * f,
-		l.y * f,
-		l.z * f);
-
-	return Ret;
-}
-
-
-inline Vector4f operator/(const Vector4f& l, float f)
-{
-	Vector4f Ret(l.x / f,
-		l.y / f,
-		l.z / f,
-		l.w / f);
-
-	return Ret;
-}
-
-
-struct PersProjInfo
-{
-	float FOV;
-	float Width;
-	float Height;
-	float zNear;
-	float zFar;
-};
-
-struct Quaternion
-{
-	float x, y, z, w;
-
-	Quaternion(float _x, float _y, float _z, float _w);
-
-	void Normalize();
-
-	Quaternion Conjugate();
-
-	Vector3f ToDegrees();
-};
-
+inline Vector3f operator+(const Vector3f& lhs, const Vector3f& rhs);
+inline Vector3f operator-(const Vector3f& lhs, const Vector3f& rhs);
+inline Vector3f operator*(const Vector3f& lhs, float f);
+inline Vector4f operator/(const Vector4f& lhs, float f);
 
 class Matrix4f
 {
 public:
 	float m[4][4];
 
-	Matrix4f()
-	{
-	}
+	Matrix4f();
 
 	// constructor from Assimp matrix
-	Matrix4f(const aiMatrix4x4& AssimpMatrix)
-	{
-		m[0][0] = AssimpMatrix.a1; m[0][1] = AssimpMatrix.a2; m[0][2] = AssimpMatrix.a3; m[0][3] = AssimpMatrix.a4;
-		m[1][0] = AssimpMatrix.b1; m[1][1] = AssimpMatrix.b2; m[1][2] = AssimpMatrix.b3; m[1][3] = AssimpMatrix.b4;
-		m[2][0] = AssimpMatrix.c1; m[2][1] = AssimpMatrix.c2; m[2][2] = AssimpMatrix.c3; m[2][3] = AssimpMatrix.c4;
-		m[3][0] = AssimpMatrix.d1; m[3][1] = AssimpMatrix.d2; m[3][2] = AssimpMatrix.d3; m[3][3] = AssimpMatrix.d4;
-	}
-
-	Matrix4f(const aiMatrix3x3& AssimpMatrix)
-	{
-		m[0][0] = AssimpMatrix.a1; m[0][1] = AssimpMatrix.a2; m[0][2] = AssimpMatrix.a3; m[0][3] = 0.0f;
-		m[1][0] = AssimpMatrix.b1; m[1][1] = AssimpMatrix.b2; m[1][2] = AssimpMatrix.b3; m[1][3] = 0.0f;
-		m[2][0] = AssimpMatrix.c1; m[2][1] = AssimpMatrix.c2; m[2][2] = AssimpMatrix.c3; m[2][3] = 0.0f;
-		m[3][0] = 0.0f; m[3][1] = 0.0f; m[3][2] = 0.0f; m[3][3] = 1.0f;
-	}
-
-	Matrix4f(float a00, float a01, float a02, float a03,
+	Matrix4f(const aiMatrix4x4& AssimpMatrix);
+	Matrix4f(const aiMatrix3x3& AssimpMatrix);
+	Matrix4f(
+		float a00, float a01, float a02, float a03,
 		float a10, float a11, float a12, float a13,
 		float a20, float a21, float a22, float a23,
-		float a30, float a31, float a32, float a33)
-	{
-		m[0][0] = a00; m[0][1] = a01; m[0][2] = a02; m[0][3] = a03;
-		m[1][0] = a10; m[1][1] = a11; m[1][2] = a12; m[1][3] = a13;
-		m[2][0] = a20; m[2][1] = a21; m[2][2] = a22; m[2][3] = a23;
-		m[3][0] = a30; m[3][1] = a31; m[3][2] = a32; m[3][3] = a33;
-	}
+		float a30, float a31, float a32, float a33);
 
-	void SetZero()
-	{
-		ZERO_MEM(m);
-	}
-
-	Matrix4f Transpose() const
+	void SetZero();
+	Matrix4f Transpose() const;
 	{
 		Matrix4f n;
 
@@ -258,8 +157,28 @@ public:
 	void InitOrthoProjTransform(const PersProjInfo& p);
 };
 
+struct Quaternion
+{
+	float x, y, z, w;
+
+	Quaternion(float _x, float _y, float _z, float _w);
+
+	void Normalize();
+	Quaternion Conjugate();
+	Vector3f ToDegrees();
+};
+
 Quaternion operator*(const Quaternion& l, const Quaternion& r);
 
 Quaternion operator*(const Quaternion& q, const Vector3f& v);
+
+struct PersProjInfo
+{
+	float FOV;
+	float width;
+	float height;
+	float zNear;
+	float zFar;
+};
 
 #endif
