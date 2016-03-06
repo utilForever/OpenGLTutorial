@@ -72,8 +72,8 @@ struct Quaternion
 	Quaternion(float _x, float _y, float _z, float _w);
 
 	void Normalize();
-	Quaternion Conjugate();
-	Vector3f ToDegrees();
+	Quaternion Conjugate() const;
+	Vector3f ToDegrees() const;
 };
 
 Quaternion operator*(const Quaternion& lhs, const Quaternion& rhs);
