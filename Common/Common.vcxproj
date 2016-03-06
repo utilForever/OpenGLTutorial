@@ -74,7 +74,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Include;$(SolutionDir)\Include\assimp;$(SolutionDir)\Include\ImageMagick-6;$(SolutionDir)\Include\ATB</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\Include;$(ProjectDir)\..\Include\assimp;$(ProjectDir)\..\Include\ImageMagick-6;$(ProjectDir)\..\Include\ATB</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
