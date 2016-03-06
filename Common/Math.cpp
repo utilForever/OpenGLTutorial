@@ -76,3 +76,32 @@ Vector3f& Vector3f::operator-=(const Vector3f& rhs)
 
 	return *this;
 }
+
+Vector3f& Vector3f::operator*=(float f)
+{
+	x *= f;
+	y *= f;
+	z *= f;
+
+	return *this;
+}
+
+Vector3f Vector3f::Cross(const Vector3f& v) const
+{
+	
+}
+
+Vector3f& Vector3f::Normalize()
+{
+	
+}
+
+void Vector3f::Rotate(float angle, const Vector3f& axis)
+{
+	
+}
+
+void Vector3f::Print() const
+{
+	std::cout << "(" << x << ", " << y << ", " << z << ")";
+}

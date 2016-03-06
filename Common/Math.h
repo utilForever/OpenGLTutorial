@@ -38,33 +38,13 @@ struct Vector3f
 
 	Vector3f& operator+=(const Vector3f& rhs);
 	Vector3f& operator-=(const Vector3f& rhs);
-	Vector3f& operator*=(float f)
-	{
-		x *= f;
-		y *= f;
-		z *= f;
-
-		return *this;
-	}
-
-	operator const float*() const
-	{
-		return &(x);
-	}
-
+	Vector3f& operator*=(float f);
 
 	Vector3f Cross(const Vector3f& v) const;
-
 	Vector3f& Normalize();
-
-	void Rotate(float Angle, const Vector3f& Axis);
-
-	void Print() const
-	{
-		printf("(%.02f, %.02f, %.02f)", x, y, z);
-	}
+	void Rotate(float angle, const Vector3f& axis);
+	void Print() const;
 };
-
 
 struct Vector4f
 {
