@@ -26,37 +26,37 @@ float RandomFloat()
 Vector2f::Vector2f()
 	: x(0.0f), y(0.0f)
 {
-	
+
 }
 
 Vector2f::Vector2f(float _x, float _y)
 	: x(_x), y(_y)
 {
-	
+
 }
 
 Vector3f::Vector3f()
 	: x(0.0f), y(0.0f), z(0.0f)
 {
-	
+
 }
 
 Vector3f::Vector3f(float _x, float _y, float _z)
 	: x(_x), y(_y), z(_z)
 {
-	
+
 }
 
 Vector3f::Vector3f(const float* pFloat)
 	: x(pFloat[0]), y(pFloat[0]), z(pFloat[0])
 {
-	
+
 }
 
 Vector3f::Vector3f(float f)
 	: x(f), y(f), z(f)
 {
-	
+
 }
 
 Vector3f& Vector3f::operator+=(const Vector3f& rhs)
@@ -88,17 +88,17 @@ Vector3f& Vector3f::operator*=(float f)
 
 Vector3f Vector3f::Cross(const Vector3f& v) const
 {
-	
+
 }
 
 Vector3f& Vector3f::Normalize()
 {
-	
+
 }
 
 void Vector3f::Rotate(float angle, const Vector3f& axis)
 {
-	
+
 }
 
 void Vector3f::Print() const
@@ -109,13 +109,13 @@ void Vector3f::Print() const
 Vector4f::Vector4f()
 	: x(0.0f), y(0.0f), z(0.0f), w(0.0f)
 {
-	
+
 }
 
 Vector4f::Vector4f(float _x, float _y, float _z, float _w)
 	: x(_x), y(_y), z(_z), w(_w)
 {
-	
+
 }
 
 void Vector4f::Print() const
@@ -155,6 +155,36 @@ inline Vector4f operator/(const Vector4f& lhs, float f)
 	Vector4f ret(lhs.x / f, lhs.y / f, lhs.z / f, lhs.w / f);
 
 	return ret;
+}
+
+Quaternion::Quaternion(float _x, float _y, float _z, float _w)
+{
+
+}
+
+void Quaternion::Normalize()
+{
+
+}
+
+Quaternion Quaternion::Conjugate()
+{
+
+}
+
+Vector3f Quaternion::ToDegrees()
+{
+
+}
+
+Quaternion operator*(const Quaternion& lhs, const Quaternion& rhs)
+{
+
+}
+
+Quaternion operator*(const Quaternion& q, const Vector3f& v)
+{
+
 }
 
 Matrix4f::Matrix4f()
@@ -221,22 +251,90 @@ Matrix4f Matrix4f::Transpose() const
 
 	return n;
 }
-Quaternion::Quaternion(float _x, float _y, float _z, float _w)
+
+inline void Matrix4f::InitIdentity()
+{
+	m[0][0] = 1.0f; m[0][1] = 0.0f; m[0][2] = 0.0f; m[0][3] = 0.0f;
+	m[1][0] = 0.0f; m[1][1] = 1.0f; m[1][2] = 0.0f; m[1][3] = 0.0f;
+	m[2][0] = 0.0f; m[2][1] = 0.0f; m[2][2] = 1.0f; m[2][3] = 0.0f;
+	m[3][0] = 0.0f; m[3][1] = 0.0f; m[3][2] = 0.0f; m[3][3] = 1.0f;
+}
+
+inline Matrix4f Matrix4f::operator*(const Matrix4f& rhs) const
+{
+	Matrix4f ret;
+
+	for (unsigned int i = 0; i < 4; i++) {
+		for (unsigned int j = 0; j < 4; j++) {
+			ret.m[i][j] =
+				m[i][0] * rhs.m[0][j] +
+				m[i][1] * rhs.m[1][j] +
+				m[i][2] * rhs.m[2][j] +
+				m[i][3] * rhs.m[3][j];
+		}
+	}
+
+	return ret;
+}
+
+Vector4f Matrix4f::operator*(const Vector4f& v) const
+{
+	Vector4f ret;
+
+	ret.x = m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z + m[0][3] * v.w;
+	ret.y = m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z + m[1][3] * v.w;
+	ret.z = m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z + m[2][3] * v.w;
+	ret.w = m[3][0] * v.x + m[3][1] * v.y + m[3][2] * v.z + m[3][3] * v.w;
+
+	return ret;
+}
+
+void Matrix4f::Print() const
+{
+	for (unsigned int i = 0; i < 4; ++i)
+	{
+		for (unsigned int j = 0; j < 4; ++j)
+		{
+			std::cout << m[i][j] << ' ';
+		}
+		std::cout << std::endl;
+	}
+}
+
+float Matrix4f::Determinant() const
 {
 	
 }
 
-void Quaternion::Normalize()
+Matrix4f& Matrix4f::Inverse()
 {
 	
 }
 
-Quaternion Quaternion::Conjugate()
+void Matrix4f::InitScaleTransform(float scaleX, float scaleY, float scaleZ)
 {
-	
 }
 
-Vector3f Quaternion::ToDegrees()
+void Matrix4f::InitRotateTransform(float rotateX, float rotateY, float rotateZ)
 {
-	
+}
+
+void Matrix4f::InitRotateTransform(const Quaternion & quat)
+{
+}
+
+void Matrix4f::InitTranslationTransform(float x, float y, float z)
+{
+}
+
+void Matrix4f::InitCameraTransform(const Vector3f & target, const Vector3f & up)
+{
+}
+
+void Matrix4f::InitPerspectiveProjectionTransform(const PerspectiveProjcetionInfo & p)
+{
+}
+
+void Matrix4f::InitOrthogonalProjectionTransform(const PerspectiveProjcetionInfo & p)
+{
 }
