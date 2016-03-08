@@ -264,10 +264,10 @@ Matrix4f::Matrix4f(const aiMatrix4x4& AssimpMatrix)
 
 Matrix4f::Matrix4f(const aiMatrix3x3& AssimpMatrix)
 {
-	m[0][0] = AssimpMatrix.a1; m[0][1] = AssimpMatrix.a2; m[0][2] = AssimpMatrix.a3; m[0][3] = 0.0f;
-	m[1][0] = AssimpMatrix.b1; m[1][1] = AssimpMatrix.b2; m[1][2] = AssimpMatrix.b3; m[1][3] = 0.0f;
-	m[2][0] = AssimpMatrix.c1; m[2][1] = AssimpMatrix.c2; m[2][2] = AssimpMatrix.c3; m[2][3] = 0.0f;
-	m[3][0] = 0.0f; m[3][1] = 0.0f; m[3][2] = 0.0f; m[3][3] = 1.0f;
+	m[0][0] = AssimpMatrix.a1;	m[0][1] = AssimpMatrix.a2;	m[0][2] = AssimpMatrix.a3;	m[0][3] = 0.0f;
+	m[1][0] = AssimpMatrix.b1;	m[1][1] = AssimpMatrix.b2;	m[1][2] = AssimpMatrix.b3;	m[1][3] = 0.0f;
+	m[2][0] = AssimpMatrix.c1;	m[2][1] = AssimpMatrix.c2;	m[2][2] = AssimpMatrix.c3;	m[2][3] = 0.0f;
+	m[3][0] = 0.0f;				m[3][1] = 0.0f;				m[3][2] = 0.0f;				m[3][3] = 1.0f;
 }
 
 Matrix4f::Matrix4f(
@@ -412,10 +412,10 @@ Matrix4f& Matrix4f::Inverse()
 
 void Matrix4f::InitScaleTransform(float scaleX, float scaleY, float scaleZ)
 {
-	m[0][0] = scaleX; m[0][1] = 0.0f;   m[0][2] = 0.0f;   m[0][3] = 0.0f;
-	m[1][0] = 0.0f;   m[1][1] = scaleY; m[1][2] = 0.0f;   m[1][3] = 0.0f;
-	m[2][0] = 0.0f;   m[2][1] = 0.0f;   m[2][2] = scaleZ; m[2][3] = 0.0f;
-	m[3][0] = 0.0f;   m[3][1] = 0.0f;   m[3][2] = 0.0f;   m[3][3] = 1.0f;
+	m[0][0] = scaleX;	m[0][1] = 0.0f;		m[0][2] = 0.0f;		m[0][3] = 0.0f;
+	m[1][0] = 0.0f;		m[1][1] = scaleY;	m[1][2] = 0.0f;		m[1][3] = 0.0f;
+	m[2][0] = 0.0f;		m[2][1] = 0.0f;		m[2][2] = scaleZ;	m[2][3] = 0.0f;
+	m[3][0] = 0.0f;		m[3][1] = 0.0f;		m[3][2] = 0.0f;		m[3][3] = 1.0f;
 }
 
 void Matrix4f::InitRotateTransform(float rotateX, float rotateY, float rotateZ)
@@ -426,20 +426,20 @@ void Matrix4f::InitRotateTransform(float rotateX, float rotateY, float rotateZ)
 	const float y = ToRadian(rotateY);
 	const float z = ToRadian(rotateZ);
 
-	rx.m[0][0] = 1.0f;	rx.m[0][1] = 0.0f;		rx.m[0][2] = 0.0f;		rx.m[0][3] = 0.0f;
-	rx.m[1][0] = 0.0f;	rx.m[1][1] = cosf(x);	rx.m[1][2] = -sinf(x);	rx.m[1][3] = 0.0f;
-	rx.m[2][0] = 0.0f;	rx.m[2][1] = sinf(x);	rx.m[2][2] = cosf(x);	rx.m[2][3] = 0.0f;
-	rx.m[3][0] = 0.0f;	rx.m[3][1] = 0.0f;		rx.m[3][2] = 0.0f;		rx.m[3][3] = 1.0f;
+	rx.m[0][0] = 1.0f;		rx.m[0][1] = 0.0f;		rx.m[0][2] = 0.0f;		rx.m[0][3] = 0.0f;
+	rx.m[1][0] = 0.0f;		rx.m[1][1] = cosf(x);	rx.m[1][2] = -sinf(x);	rx.m[1][3] = 0.0f;
+	rx.m[2][0] = 0.0f;		rx.m[2][1] = sinf(x);	rx.m[2][2] = cosf(x);	rx.m[2][3] = 0.0f;
+	rx.m[3][0] = 0.0f;		rx.m[3][1] = 0.0f;		rx.m[3][2] = 0.0f;		rx.m[3][3] = 1.0f;
 
-	ry.m[0][0] = cosf(y); ry.m[0][1] = 0.0f; ry.m[0][2] = -sinf(y); ry.m[0][3] = 0.0f;
-	ry.m[1][0] = 0.0f; ry.m[1][1] = 1.0f; ry.m[1][2] = 0.0f; ry.m[1][3] = 0.0f;
-	ry.m[2][0] = sinf(y); ry.m[2][1] = 0.0f; ry.m[2][2] = cosf(y); ry.m[2][3] = 0.0f;
-	ry.m[3][0] = 0.0f; ry.m[3][1] = 0.0f; ry.m[3][2] = 0.0f; ry.m[3][3] = 1.0f;
+	ry.m[0][0] = cosf(y);	ry.m[0][1] = 0.0f;		ry.m[0][2] = -sinf(y);	ry.m[0][3] = 0.0f;
+	ry.m[1][0] = 0.0f;		ry.m[1][1] = 1.0f;		ry.m[1][2] = 0.0f;		ry.m[1][3] = 0.0f;
+	ry.m[2][0] = sinf(y);	ry.m[2][1] = 0.0f;		ry.m[2][2] = cosf(y);	ry.m[2][3] = 0.0f;
+	ry.m[3][0] = 0.0f;		ry.m[3][1] = 0.0f;		ry.m[3][2] = 0.0f;		ry.m[3][3] = 1.0f;
 
-	rz.m[0][0] = cosf(z); rz.m[0][1] = -sinf(z); rz.m[0][2] = 0.0f; rz.m[0][3] = 0.0f;
-	rz.m[1][0] = sinf(z); rz.m[1][1] = cosf(z); rz.m[1][2] = 0.0f; rz.m[1][3] = 0.0f;
-	rz.m[2][0] = 0.0f; rz.m[2][1] = 0.0f; rz.m[2][2] = 1.0f; rz.m[2][3] = 0.0f;
-	rz.m[3][0] = 0.0f; rz.m[3][1] = 0.0f; rz.m[3][2] = 0.0f; rz.m[3][3] = 1.0f;
+	rz.m[0][0] = cosf(z);	rz.m[0][1] = -sinf(z);	rz.m[0][2] = 0.0f;		rz.m[0][3] = 0.0f;
+	rz.m[1][0] = sinf(z);	rz.m[1][1] = cosf(z);	rz.m[1][2] = 0.0f;		rz.m[1][3] = 0.0f;
+	rz.m[2][0] = 0.0f;		rz.m[2][1] = 0.0f;		rz.m[2][2] = 1.0f;		rz.m[2][3] = 0.0f;
+	rz.m[3][0] = 0.0f;		rz.m[3][1] = 0.0f;		rz.m[3][2] = 0.0f;		rz.m[3][3] = 1.0f;
 
 	*this = rz * ry * rx;
 }
@@ -488,10 +488,10 @@ void Matrix4f::InitCameraTransform(const Vector3f & target, const Vector3f & up)
 	U = U.Cross(N);
 	Vector3f V = N.Cross(U);
 
-	m[0][0] = U.x;   m[0][1] = U.y;   m[0][2] = U.z;   m[0][3] = 0.0f;
-	m[1][0] = V.x;   m[1][1] = V.y;   m[1][2] = V.z;   m[1][3] = 0.0f;
-	m[2][0] = N.x;   m[2][1] = N.y;   m[2][2] = N.z;   m[2][3] = 0.0f;
-	m[3][0] = 0.0f;  m[3][1] = 0.0f;  m[3][2] = 0.0f;  m[3][3] = 1.0f;
+	m[0][0] = U.x;	m[0][1] = U.y;	m[0][2] = U.z;   m[0][3] = 0.0f;
+	m[1][0] = V.x;	m[1][1] = V.y;	m[1][2] = V.z;   m[1][3] = 0.0f;
+	m[2][0] = N.x;	m[2][1] = N.y;	m[2][2] = N.z;   m[2][3] = 0.0f;
+	m[3][0] = 0.0f;	m[3][1] = 0.0f;	m[3][2] = 0.0f;  m[3][3] = 1.0f;
 }
 
 void Matrix4f::InitPerspectiveProjectionTransform(const PerspectiveProjcetionInfo & p)
@@ -500,18 +500,18 @@ void Matrix4f::InitPerspectiveProjectionTransform(const PerspectiveProjcetionInf
 	const float zRange = p.zNear - p.zFar;
 	const float tanHalfFOV = tanf(ToRadian(p.FOV / 2.0f));
 
-	m[0][0] = 1.0f / (tanHalfFOV * ar); m[0][1] = 0.0f;            m[0][2] = 0.0f;            m[0][3] = 0.0;
-	m[1][0] = 0.0f;                   m[1][1] = 1.0f / tanHalfFOV; m[1][2] = 0.0f;            m[1][3] = 0.0;
-	m[2][0] = 0.0f;                   m[2][1] = 0.0f;            m[2][2] = (-p.zNear - p.zFar) / zRange; m[2][3] = 2.0f*p.zFar*p.zNear / zRange;
-	m[3][0] = 0.0f;                   m[3][1] = 0.0f;            m[3][2] = 1.0f;            m[3][3] = 0.0;
+	m[0][0] = 1.0f / (tanHalfFOV * ar);	m[0][1] = 0.0f;					m[0][2] = 0.0f;							m[0][3] = 0.0;
+	m[1][0] = 0.0f;						m[1][1] = 1.0f / tanHalfFOV;	m[1][2] = 0.0f;							m[1][3] = 0.0;
+	m[2][0] = 0.0f;						m[2][1] = 0.0f;					m[2][2] = (-p.zNear - p.zFar) / zRange;	m[2][3] = 2.0f*p.zFar*p.zNear / zRange;
+	m[3][0] = 0.0f;						m[3][1] = 0.0f;					m[3][2] = 1.0f;							m[3][3] = 0.0;
 }
 
 void Matrix4f::InitOrthogonalProjectionTransform(const PerspectiveProjcetionInfo & p)
 {
 	const float zRange = p.zFar - p.zNear;
 
-	m[0][0] = 2.0f / p.width; m[0][1] = 0.0f;          m[0][2] = 0.0f;        m[0][3] = 0.0;
-	m[1][0] = 0.0f;         m[1][1] = 2.0f / p.height; m[1][2] = 0.0f;        m[1][3] = 0.0;
-	m[2][0] = 0.0f;         m[2][1] = 0.0f;          m[2][2] = 2.0f / zRange; m[2][3] = (-p.zFar - p.zNear) / zRange;
-	m[3][0] = 0.0f;         m[3][1] = 0.0f;          m[3][2] = 0.0f;        m[3][3] = 1.0;
+	m[0][0] = 2.0f / p.width;	m[0][1] = 0.0f;				m[0][2] = 0.0f;				m[0][3] = 0.0;
+	m[1][0] = 0.0f;				m[1][1] = 2.0f / p.height;	m[1][2] = 0.0f;				m[1][3] = 0.0;
+	m[2][0] = 0.0f;				m[2][1] = 0.0f;				m[2][2] = 2.0f / zRange;	m[2][3] = (-p.zFar - p.zNear) / zRange;
+	m[3][0] = 0.0f;				m[3][1] = 0.0f;				m[3][2] = 0.0f;				m[3][3] = 1.0;
 }
