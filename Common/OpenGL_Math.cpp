@@ -1,4 +1,4 @@
-#include "Math.h"
+#include "OpenGL_Math.h"
 
 inline float ToRadian(float x)
 {
@@ -92,7 +92,7 @@ Vector3f Vector3f::Cross(const Vector3f& v) const
 
 Vector3f& Vector3f::Normalize()
 {
-	const float length = sqrtf(x * x + y * y + z * z);
+	const float length = sqrt(x * x + y * y + z * z);
 
 	x /= length;
 	y /= length;
@@ -103,8 +103,8 @@ Vector3f& Vector3f::Normalize()
 
 void Vector3f::Rotate(float angle, const Vector3f& axis)
 {
-	const float sinHalfAngle = sinf(ToRadian(angle / 2));
-	const float cosHalfAngle = cosf(ToRadian(angle / 2));
+	const float sinHalfAngle = sin(ToRadian(angle / 2));
+	const float cosHalfAngle = cos(ToRadian(angle / 2));
 
 	const float Rx = axis.x * sinHalfAngle;
 	const float Ry = axis.y * sinHalfAngle;
@@ -183,7 +183,7 @@ Quaternion::Quaternion(float _x, float _y, float _z, float _w)
 
 void Quaternion::Normalize()
 {
-	float length = sqrtf(x * x + y * y + z * z + w * w);
+	float length = sqrt(x * x + y * y + z * z + w * w);
 
 	x /= length;
 	y /= length;
@@ -421,17 +421,17 @@ void Matrix4f::InitRotateTransform(float rotateX, float rotateY, float rotateZ)
 	const float z = ToRadian(rotateZ);
 
 	rx.m[0][0] = 1.0f;		rx.m[0][1] = 0.0f;		rx.m[0][2] = 0.0f;		rx.m[0][3] = 0.0f;
-	rx.m[1][0] = 0.0f;		rx.m[1][1] = cosf(x);	rx.m[1][2] = -sinf(x);	rx.m[1][3] = 0.0f;
-	rx.m[2][0] = 0.0f;		rx.m[2][1] = sinf(x);	rx.m[2][2] = cosf(x);	rx.m[2][3] = 0.0f;
+	rx.m[1][0] = 0.0f;		rx.m[1][1] = cos(x);	rx.m[1][2] = -sin(x);	rx.m[1][3] = 0.0f;
+	rx.m[2][0] = 0.0f;		rx.m[2][1] = sin(x);	rx.m[2][2] = cos(x);	rx.m[2][3] = 0.0f;
 	rx.m[3][0] = 0.0f;		rx.m[3][1] = 0.0f;		rx.m[3][2] = 0.0f;		rx.m[3][3] = 1.0f;
 
-	ry.m[0][0] = cosf(y);	ry.m[0][1] = 0.0f;		ry.m[0][2] = -sinf(y);	ry.m[0][3] = 0.0f;
+	ry.m[0][0] = cos(y);	ry.m[0][1] = 0.0f;		ry.m[0][2] = -sin(y);	ry.m[0][3] = 0.0f;
 	ry.m[1][0] = 0.0f;		ry.m[1][1] = 1.0f;		ry.m[1][2] = 0.0f;		ry.m[1][3] = 0.0f;
-	ry.m[2][0] = sinf(y);	ry.m[2][1] = 0.0f;		ry.m[2][2] = cosf(y);	ry.m[2][3] = 0.0f;
+	ry.m[2][0] = sin(y);	ry.m[2][1] = 0.0f;		ry.m[2][2] = cos(y);	ry.m[2][3] = 0.0f;
 	ry.m[3][0] = 0.0f;		ry.m[3][1] = 0.0f;		ry.m[3][2] = 0.0f;		ry.m[3][3] = 1.0f;
 
-	rz.m[0][0] = cosf(z);	rz.m[0][1] = -sinf(z);	rz.m[0][2] = 0.0f;		rz.m[0][3] = 0.0f;
-	rz.m[1][0] = sinf(z);	rz.m[1][1] = cosf(z);	rz.m[1][2] = 0.0f;		rz.m[1][3] = 0.0f;
+	rz.m[0][0] = cos(z);	rz.m[0][1] = -sin(z);	rz.m[0][2] = 0.0f;		rz.m[0][3] = 0.0f;
+	rz.m[1][0] = sin(z);	rz.m[1][1] = cos(z);	rz.m[1][2] = 0.0f;		rz.m[1][3] = 0.0f;
 	rz.m[2][0] = 0.0f;		rz.m[2][1] = 0.0f;		rz.m[2][2] = 1.0f;		rz.m[2][3] = 0.0f;
 	rz.m[3][0] = 0.0f;		rz.m[3][1] = 0.0f;		rz.m[3][2] = 0.0f;		rz.m[3][3] = 1.0f;
 
@@ -492,7 +492,7 @@ void Matrix4f::InitPerspectiveProjectionTransform(const PerspectiveProjcetionInf
 {
 	const float ar = p.width / p.height;
 	const float zRange = p.zNear - p.zFar;
-	const float tanHalfFOV = tanf(ToRadian(p.FOV / 2.0f));
+	const float tanHalfFOV = tan(ToRadian(p.FOV / 2.0f));
 
 	m[0][0] = 1.0f / (tanHalfFOV * ar);	m[0][1] = 0.0f;					m[0][2] = 0.0f;							m[0][3] = 0.0;
 	m[1][0] = 0.0f;						m[1][1] = 1.0f / tanHalfFOV;	m[1][2] = 0.0f;							m[1][3] = 0.0;

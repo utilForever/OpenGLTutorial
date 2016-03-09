@@ -1,15 +1,12 @@
-#ifndef MATRIX_H
-#define MATRIX_H
+#ifndef OPENGL_MATH_H
+#define OPENGL_MATH_H
+
+#define _USE_MATH_DEFINES
 
 #include <iostream>
 #include <random>
 #include <cassert>
-#ifdef WIN32
-#define _USE_MATH_DEFINES 
 #include <cmath>
-#else
-#include <math.h>
-#endif
 
 #include <matrix3x3.h>
 #include <matrix4x4.h>
