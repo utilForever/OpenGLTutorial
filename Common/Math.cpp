@@ -1,9 +1,3 @@
-#include <iostream>
-#define _USE_MATH_DEFINES 
-#include <math.h>
-#include <random>
-#include <cassert>
-
 #include "Math.h"
 
 inline float ToRadian(float x)
