@@ -3,6 +3,8 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+#include <OpenGL_Math.h>
+
 GLuint VBO;
 
 static void InitializeGlutCallbacks();
@@ -57,5 +59,10 @@ static void RenderScene()
 
 void CreateVertexBuffer()
 {
-	
+	Vector3f Vertices[1];
+	Vertices[0] = Vector3f(0.0f, 0.0f, 0.0f);
+
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }
