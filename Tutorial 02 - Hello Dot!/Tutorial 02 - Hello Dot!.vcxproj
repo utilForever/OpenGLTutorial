@@ -22,6 +22,7 @@
     <ProjectGuid>{EA46F19F-8A1D-4858-AC74-76AD7156441A}</ProjectGuid>
     <RootNamespace>Tutorial02HelloDot</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Tutorial 02 - Hello dot!</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
