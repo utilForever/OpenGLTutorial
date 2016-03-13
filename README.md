@@ -4,9 +4,9 @@ Modern OpenGL Tutorials based on [OGLdev](http://ogldev.atspace.co.uk/) (Transla
 
 ## Tutorials
 
-01 - Create a window [\[Example\]](https://github.com/utilForever/OpenGLStudy/tree/master/Tutorial%2001%20-%20Create%20a%20window)
+01 - Create a window [\[Tutorial\]](TBA) [\[Example\]](https://github.com/utilForever/OpenGLStudy/tree/master/Tutorial%2001%20-%20Create%20a%20window)
 
-02 - Hello dot! [\[Example\]](https://github.com/utilForever/OpenGLStudy/tree/master/Tutorial%2002%20-%20Hello%20Dot!)
+02 - Hello dot! [\[Tutorial\]](TBA) [\[Example\]](https://github.com/utilForever/OpenGLStudy/tree/master/Tutorial%2002%20-%20Hello%20Dot!)
 
 03 - First triangle
 
