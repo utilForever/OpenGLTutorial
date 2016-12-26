@@ -1,4 +1,4 @@
-# OpenGLStudy
+# OpenGLTutorial
 
 Modern OpenGL Tutorials based on [OGLdev](http://ogldev.atspace.co.uk/) (Translation to Korean)
 
